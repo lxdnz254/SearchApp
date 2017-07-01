@@ -1,0 +1,9 @@
+Store csv files in neo4j/import/*.csv
+
+//loads the bands
+
+LOAD CSV WITH HEADERS FROM 'file:///bands.csv' AS line FIELDTERMINATOR ',' MERGE (b:Band {name: line.name, cost: toInt(line.cost), rating: toInt(line.rating)}) FOREACH (genreName IN split(line.genre, ';')| MERGE (genre:Genre {name:genreName}) MERGE(b)-[:HAS_GENRE]-(genre));
+
+// loads the members of bands and relationship
+
+LOAD CSV WITH HEADERS FROM 'file:///members.csv' AS line FIELDTERMINATOR ',' MATCH (b:Band {name: line.band}) MERGE (m:Member {name: line.name, instrument: line.instrument}) MERGE (m)-[:IN_BAND]->(b);
