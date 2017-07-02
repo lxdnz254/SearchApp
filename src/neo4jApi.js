@@ -1,17 +1,9 @@
 require('file?name=[name].[ext]!../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js');
+repquire('./db/bolt');
 
 var Band = require('./models/Band');
 var BandMembers = require('./models/BandMembers');
 var _ = require('lodash');
-
-var neo4j = window.neo4j.v1;
-var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j2"));
-
-// Register a callback to know if driver creation failed.
-// This could happen due to wrong credentials or database unavailability:
-driver.onError = function (error) {
-  console.log('Driver instantiation failed', error);
-};
 
 function searchBandByGenre(queryString) {
   var session = driver.session();

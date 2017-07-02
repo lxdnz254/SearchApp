@@ -1,6 +1,8 @@
-# Neo4j Movies Example Application - `neo4j-driver` Edition
+# Neo4j Band Search Example Application - `neo4j-driver` Edition
 
 ![image of application](./img/Screenshot.png)
+
+A simple search by Genre app to demonstrate using Neo4j. I havent included many bands, but this list could be easily extended.
 
 ## Stack
 
@@ -19,8 +21,9 @@ $ npm install
 
 ### Run locally
 
-* Start Neo4j ([Download & Install](http://neo4j.com/download)) locally and open the [Neo4j Browser](http://localhost:7474). 
-* Install the NZ Artist dataset with `CODE in cypher_code.txt`, click the statement, and hit the triangular "Run" button.
+* Start Neo4j ([Download & Install](http://neo4j.com/download)) locally and open the [Neo4j Browser](http://localhost:7474).
+* You will be asked to choose a user name and password, update these and change in the file `/src/db/bolt.js` 
+* Import the NZ Artist dataset from the .csv file in `/db_files/` to `/neo4j/import/`. And load the codes in `/cypher_code.txt`, in to the [Neo4j Browser](https://localhost:7474) click the statement, and hit the triangular "Run" button.
 * Clone this project from GitHub
 * Run the App inside the Webpack Dev Server:
 
