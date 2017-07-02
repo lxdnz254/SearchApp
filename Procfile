@@ -1,1 +1,1 @@
-web : npm run build build/index.html
+web : npm run build
