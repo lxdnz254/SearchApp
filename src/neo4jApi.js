@@ -1,12 +1,12 @@
 require('file?name=[name].[ext]!../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js');
-repquire('./db/bolt');
 
 var Band = require('./models/Band');
 var BandMembers = require('./models/BandMembers');
 var _ = require('lodash');
+var db = require('./db/bolt');
 
 function searchBandByGenre(queryString) {
-  var session = driver.session();
+  var session = db.driver.session();
   return session
     .run(
       'MATCH (band:Band)-[:HAS_GENRE]->(g:Genre) \
@@ -29,7 +29,7 @@ function searchBandByGenre(queryString) {
 
 
 function getBand(name) {
-  var session = driver.session();
+  var session = db.driver.session();
   return session
     .run(
       "MATCH (band:Band {name:{name}}) \
@@ -54,7 +54,7 @@ function getBand(name) {
 }
 
 function getGraph() {
-  var session = driver.session();
+  var session = db.driver.session();
   return session.run(
     'MATCH (b:BAND)<-[:IN_BAND]-(a:Member) \
     RETURN b.name AS band, collect(a.name) AS member \

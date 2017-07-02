@@ -6,3 +6,6 @@ var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j2"
 driver.onError = function (error) {
   console.log('Driver instantiation failed', error);
 };
+
+exports.neo4j = neo4j;
+exports.driver = driver;

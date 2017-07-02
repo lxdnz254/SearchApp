@@ -1,6 +1,6 @@
 var api = require('./neo4jApi');
 const formatCurrency = require('format-currency');
-let opts = { format: '%s%v', symbol: '$'};
+var opts = { format: '%s%v', symbol: '$'};
 
 $(function () {
   renderGraph();
