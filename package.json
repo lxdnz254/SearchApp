@@ -7,7 +7,7 @@
   "dependencies": {
     "format-currency": "^1.0.0",
     "lodash": "^4.15.0",
-    "neo4j-driver": "^1.0.4"
+    "neo4j-driver": "^1.7.2"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
