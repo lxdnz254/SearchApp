@@ -6,7 +6,7 @@
   "license": "PRIVATE",
   "dependencies": {
     "format-currency": "^1.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "neo4j-driver": "^1.7.5"
   },
   "devDependencies": {
